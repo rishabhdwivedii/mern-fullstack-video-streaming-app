@@ -1,17 +1,11 @@
 import React from "react";
 import "./App.css";
-import Video from "./components/video/Video";
-import Feed from "./components/feed/Feed";
+import VideoCard from "./components/videoCard/VideoCard";
 
 function App() {
   return (
     <div className="App">
-      <div className="video">
-        <Video propsValue="./videos/pizza.mp4" />
-      </div>
-      <div className="feed">
-        <Feed />
-      </div>
+      <VideoCard title={"New video"} image={"thumbnail.jpg"} />
     </div>
   );
 }
