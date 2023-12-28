@@ -16,8 +16,7 @@ const Feed = () => {
     <div className="feed">
       {VIDEOS.map((video) => (
         <div>
-          {" "}
-          <VideoCard title={video.title} image={video.image} />{" "}
+          <VideoCard title={video.title} image={video.image} />
         </div>
       ))}
     </div>

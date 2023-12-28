@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import VideoCard from "./components/videoCard/VideoCard";
+import Feed from "./components/feed/Feed";
 
 function App() {
   return (
     <div className="App">
-      <VideoCard title={"New video"} image={"thumbnail.jpg"} />
+      <Feed />
     </div>
   );
 }

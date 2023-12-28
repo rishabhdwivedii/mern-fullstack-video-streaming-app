@@ -3,8 +3,8 @@ import "./videoCard.css";
 
 const VideoCard = (props) => {
   return (
-    <div>
-      <img src={props.image} alt="thumbnail" />
+    <div className="videocard">
+      <img src={props.image} alt="thumbnail" className="image" />
       <p>{props.title}</p>
     </div>
   );
