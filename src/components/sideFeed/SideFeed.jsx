@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./videoCard.css";
+import "./sideFeed.css";
 
-const VideoCard = ({ video }) => {
+export default function SideFeed({ video }) {
   return (
-    <Link to="/videoPage/1" className="video">
+    <Link to={`/videoPage/1`} className="feeddd">
       <img className="thumbnail" src={video.thumbnail} alt="Thumbnail" />
       <div className="title">{video.title}</div>
     </Link>
   );
-};
-
-export default VideoCard;
+}

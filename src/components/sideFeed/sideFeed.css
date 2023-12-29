@@ -1,0 +1,20 @@
+.title {
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.thumbnail {
+  overflow: hidden;
+  grid-column: span 5 / span 5;
+  border-radius: 0.75rem;
+  width: 100%;
+}
+
+.feeddd {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  cursor: pointer;
+  padding-bottom: 7%;
+}
