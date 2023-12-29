@@ -11,7 +11,6 @@ export default function VideoPage() {
         <div className="video-box">
           <video
             width={"100%"}
-            height={"720px"}
             controls
             src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
           />
