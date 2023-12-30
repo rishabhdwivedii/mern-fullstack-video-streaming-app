@@ -1,12 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./sideFeed.css";
+import { VIDEOS } from "../../videos";
+import VideoCard from "../videoCard/VideoCard";
 
 export default function SideFeed({ video }) {
   return (
-    <Link to={`/videoPage/1`} className="feeddd">
-      <img className="thumbnail" src={video.thumbnail} alt="Thumbnail" />
-      <div className="title">{video.title}</div>
-    </Link>
+    <div className="feeddd">
+      {VIDEOS.map((video, index) => (
+        <div key={index} className="videoo">
+          <VideoCard video={video} />
+        </div>
+      ))}
+    </div>
   );
 }
