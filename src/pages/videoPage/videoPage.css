@@ -13,6 +13,8 @@
 
 .feedd {
   grid-column: span 3 / span 3;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .page {
