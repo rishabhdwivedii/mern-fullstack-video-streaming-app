@@ -1,0 +1,18 @@
+.appbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: red;
+  padding: 1%;
+}
+
+.signup {
+  margin-left: 10px;
+}
+
+.upload {
+  margin-left: 10px;
+}
+
+.side {
+  display: flex;
+}

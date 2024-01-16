@@ -4,8 +4,8 @@ import "./videoCard.css";
 
 const VideoCard = ({ video }) => {
   return (
-        <Link to={`/videoPage/${video.id}`} className="video">
-      <img className="thumbnail" src={video.thumbnail} alt="Thumbnail" />
+    <Link to={`/videoPage/${video._id}`} className="video">
+      <img className="thumbnail" src={`/${video.thumbnail}`} alt="Thumbnail" />
       <div className="title">{video.title}</div>
     </Link>
   );

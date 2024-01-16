@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  justify-content: center;
+  border: 10px solid black;
+  width: 400px;
+  background-color: red;
+  margin: auto;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}

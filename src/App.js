@@ -1,22 +1,26 @@
 import React from "react";
 import "./App.css";
 import Feed from "./pages/feed/Feed";
+import SignIn from "./pages/signIn/SignIn";
+import SignUp from "./pages/signUp/SignUp";
+import Appbar from "./components/appbar/Appbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VideoPage from "./pages/videoPage/VideoPage";
+import Upload from "./pages/upload/Upload";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Appbar />
         <Routes>
-          <Route exact path="/" element={<Feed />} />
-          <Route path="/videoPage/:id" element={<VideoPage />} />
+          <Route exact path="/" element={<SignUp />} />
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/feed" element={<Feed />} />
+          <Route path="/videoPage/:_id" element={<VideoPage />} />
+          <Route exact path="/upload" element={<Upload />} />
         </Routes>
       </BrowserRouter>
-      {/* <Routes>
-        <Route path="/video/:id" element={<VideoPage />} />
-        <Route path="/" element={<Feed />} />
-      </Routes> */}
     </div>
   );
 }
