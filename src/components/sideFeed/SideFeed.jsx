@@ -6,7 +6,7 @@ export default function SideFeed() {
   const [videoFromBackend, setVideoFromBackend] = React.useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001", {
+    fetch("https://video-streaming-backend-seven.vercel.app/", {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),

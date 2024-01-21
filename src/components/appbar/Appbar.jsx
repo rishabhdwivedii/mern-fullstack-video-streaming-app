@@ -7,7 +7,7 @@ const Appbar = () => {
   const [userExists, setUserExists] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/me", {
+    fetch("https://video-streaming-backend-seven.vercel.app/me", {
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),

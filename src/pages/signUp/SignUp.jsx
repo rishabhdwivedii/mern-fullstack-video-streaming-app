@@ -32,7 +32,7 @@ const SignUp = () => {
           <br></br>
           <button
             onClick={() => {
-              fetch("http://localhost:3001/signup", {
+              fetch("https://video-streaming-backend-seven.vercel.app/signup", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
