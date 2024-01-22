@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./signUp.css";
+import axios from "axios";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -31,30 +32,28 @@ const SignUp = () => {
           <br></br>
           <br></br>
           <button
-            onClick={() => {
-              fetch("https://video-streaming-backend-seven.vercel.app/signup", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  username,
-                  password,
-                }),
-              })
-                .then((res) => {
-                  if (!res.ok) {
-                    throw new Error(`HTTP error! Status: ${res.status}`);
+            onClick={async () => {
+              try {
+                const response = await axios.post(
+                  "https://video-streaming-backend-seven.vercel.app/signup",
+                  {
+                    username,
+                    password,
+                  },
+                  {
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
                   }
-                  return res.json();
-                })
-                .then((data) => {
-                  localStorage.setItem("token", data.token);
-                  window.location = "/feed";
-                })
-                .catch((error) => {
-                  console.error("Error during sign-up:", error);
-                });
+                );
+                if (!response.status === 200) {
+                  console.log(`HTTP error! Status: ${response.status}`);
+                }
+                localStorage.setItem("token", response.data.token);
+                window.location = "/feed";
+              } catch (error) {
+                console.log("Error:", error);
+              }
             }}>
             Sign Up
           </button>

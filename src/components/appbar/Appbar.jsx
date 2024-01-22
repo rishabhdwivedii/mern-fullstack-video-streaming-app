@@ -1,25 +1,30 @@
 import { useNavigate } from "react-router-dom";
 import "./appbar.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Appbar = () => {
   const navigate = useNavigate();
   const [userExists, setUserExists] = useState(null);
 
   useEffect(() => {
-    fetch("https://video-streaming-backend-seven.vercel.app/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    }).then((res) => {
-      if (!res.ok) {
-        return;
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://video-streaming-backend-seven.vercel.app/me",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        );
+        setUserExists(response.data.username);
+      } catch (error) {
+        console.log("Error fetch data:", error);
       }
-      res.json().then((data) => {
-        setUserExists(data.username);
-      });
-    });
+    };
+    fetchData();
   }, []);
 
   if (userExists) {

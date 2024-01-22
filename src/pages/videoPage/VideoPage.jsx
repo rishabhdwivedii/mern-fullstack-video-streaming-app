@@ -1,31 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SideFeed from "../../components/sideFeed/SideFeed";
 import "./videoPage.css";
+import axios from "axios";
 
 export default function VideoPage() {
-  const [videoFromBackend, setVideoFromBackend] = React.useState([]);
+  const [videoFromBackend, setVideoFromBackend] = useState([]);
 
-  React.useEffect(() => {
-    fetch("https://video-streaming-backend-seven.vercel.app/", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://video-streaming-backend-seven.vercel.app/",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        );
+        if (!response.status === 200) {
+          console.log("Error occured.");
         }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setVideoFromBackend(data);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
+        console.log(response.data);
+        setVideoFromBackend(response.data);
+      } catch (error) {
+        console.log("Error during fetch:", error);
+      }
+    };
+    fetchData();
   }, []);
 
   const { _id } = useParams();

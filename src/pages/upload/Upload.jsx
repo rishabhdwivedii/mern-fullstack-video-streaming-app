@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./upload.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Upload = () => {
   const [title, setTitle] = useState("");
@@ -40,27 +41,35 @@ const Upload = () => {
         <br />
         <br />
         <button
-          onClick={() => {
-            fetch("http://localhost:3001/upload", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer " + localStorage.getItem("token"),
-              },
-              body: JSON.stringify({
-                title,
-                thumbnail,
-                video,
-              }),
-            }).then((res) =>
-              res.json().then((data) => {
-                console.log(data);
-                alert("Video Uploaded Successfully!");
-                navigate("/feed");
-              })
-            );
+          onClick={async () => {
+            try {
+              const response = await axios.post(
+                "https://video-streaming-backend-seven.vercel.app/upload",
+                {
+                  title,
+                  thumbnail,
+                  video,
+                },
+                {
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                  },
+                }
+              );
+
+              if (response.status !== 200) {
+                console.log("Error occurred during fetching");
+              }
+
+              console.log(response.data); // Fixed the typo here
+              alert("Video Uploaded Successfully!");
+              navigate("/feed");
+            } catch (error) {
+              console.log("Error", error);
+            }
           }}>
-          Upload
+          Upload Video
         </button>
       </div>
     </div>

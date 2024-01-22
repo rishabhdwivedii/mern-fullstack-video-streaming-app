@@ -1,52 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./feed.css";
 import VideoCard from "../../components/videoCard/VideoCard";
+import axios from "axios";
 
 const Feed = () => {
-  const [videoFromBackend, setVideoFromBackend] = React.useState([]);
+  const [videoFromBackend, setVideoFromBackend] = useState([]);
 
-  React.useEffect(() => {
-    fetch("https://video-streaming-backend-seven.vercel.app/", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setVideoFromBackend(data);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
-
-    setInterval(() => {
-      fetch("https://video-streaming-backend-seven.vercel.app/", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://video-streaming-backend-seven.vercel.app/",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
           }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setVideoFromBackend(data);
-        })
-        .catch((error) => {
-          console.error("Fetch error:", error);
-        });
+        );
+        if (response.status !== 200) {
+          console.log("Error fetching data.");
+        }
+        console.log(response.data);
+        setVideoFromBackend(response.data);
+      } catch (error) {
+        console.log("Error during fetching data:", error);
+      }
+    };
+    fetchData();
+
+    const intervalId = setInterval(async () => {
+      await fetchData();
     }, 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

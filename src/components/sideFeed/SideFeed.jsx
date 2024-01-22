@@ -1,31 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./sideFeed.css";
 import VideoCard from "../videoCard/VideoCard";
+import axios from "axios";
 
 export default function SideFeed() {
-  const [videoFromBackend, setVideoFromBackend] = React.useState([]);
+  const [videoFromBackend, setVideoFromBackend] = useState([]);
 
   useEffect(() => {
-    fetch("https://video-streaming-backend-seven.vercel.app/", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://video-streaming-backend-seven.vercel.app/",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        );
+
+        if (response.status !== 200) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setVideoFromBackend(data);
-      })
-      .catch((error) => {
+
+        console.log(response.data);
+        setVideoFromBackend(response.data);
+      } catch (error) {
         console.error("Fetch error:", error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
+
   return (
     <div className="feeddd">
       {videoFromBackend.map((video, index) => (
