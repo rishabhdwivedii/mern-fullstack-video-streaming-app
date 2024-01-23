@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import "./appbar.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./landing.css";
+import { useNavigate } from "react-router-dom";
 
-const Appbar = () => {
+const Landing = () => {
   const navigate = useNavigate();
-  const [userExists, setUserExists] = useState(null);
+  const [userExists, setUserExists] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +19,9 @@ const Appbar = () => {
             },
           }
         );
+        if (response.status !== 200) {
+          console.log("Error during fetch");
+        }
         setUserExists(response.data.username);
       } catch (error) {
         console.log("Error fetch data:", error);
@@ -29,38 +32,22 @@ const Appbar = () => {
 
   if (userExists) {
     return (
-      <div className="appbar">
-        <div>
-          <button>Home</button>
-          <button
-            className="upload"
-            onClick={() => {
-              navigate("/upload");
-            }}>
-            Upload
-          </button>
-        </div>
-        <div className="side">
-          <div>{userExists}</div>
-          <button
-            className="signup"
-            onClick={() => {
-              localStorage.removeItem("token");
-              window.location = "/";
-            }}>
-            Logout
-          </button>
+      <div className="landing-second">
+        <div className="container-second">Welcome to Video Streaming App!</div>
+        <div className="image-second">
+          <img
+            src="https://restream.io/blog/content/images/size/w2000/2022/10/best-live-streaming-apps.jpg"
+            alt="Landing"
+          />
         </div>
       </div>
     );
   }
 
   return (
-    <div className="appbar">
-      <div>
-        <button>Home</button>
-      </div>
-      <div>
+    <div className="landing">
+      <div className="button-container">
+        <div>Welcome to Video Streaming App!</div>
         <button
           onClick={() => {
             navigate("/signin");
@@ -75,8 +62,15 @@ const Appbar = () => {
           Sign Up
         </button>
       </div>
+      <div>
+        <img
+          className="image"
+          src="https://restream.io/blog/content/images/size/w2000/2022/10/best-live-streaming-apps.jpg"
+          alt="Landing"
+        />
+      </div>
     </div>
   );
 };
 
-export default Appbar;
+export default Landing;

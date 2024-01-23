@@ -7,6 +7,7 @@ import Appbar from "./components/appbar/Appbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VideoPage from "./pages/videoPage/VideoPage";
 import Upload from "./pages/upload/Upload";
+import Landing from "./pages/landing/Landing";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <BrowserRouter>
         <Appbar />
         <Routes>
-          <Route exact path="/" element={<SignUp />} />
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/signin" element={<SignIn />} />
           <Route exact path="/feed" element={<Feed />} />
           <Route path="/videoPage/:_id" element={<VideoPage />} />

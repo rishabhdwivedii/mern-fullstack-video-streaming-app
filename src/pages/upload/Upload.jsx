@@ -62,7 +62,7 @@ const Upload = () => {
                 console.log("Error occurred during fetching");
               }
 
-              console.log(response.data); // Fixed the typo here
+              console.log(response.data);
               alert("Video Uploaded Successfully!");
               navigate("/feed");
             } catch (error) {

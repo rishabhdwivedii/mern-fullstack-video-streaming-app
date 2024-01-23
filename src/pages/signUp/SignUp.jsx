@@ -46,7 +46,7 @@ const SignUp = () => {
                     },
                   }
                 );
-                if (!response.status === 200) {
+                if (response.status !== 200) {
                   console.log(`HTTP error! Status: ${response.status}`);
                 }
                 localStorage.setItem("token", response.data.token);
