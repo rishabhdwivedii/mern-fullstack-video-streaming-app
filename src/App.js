@@ -73,39 +73,3 @@ function InitUser() {
 }
 
 export default App;
-
-// function InitUser() {
-//   const setUser = useSetRecoilState(userState);
-
-//   useEffect(() => {
-//     const init = async () => {
-//       try {
-//         const response = await axios.get(
-//           "https://video-streaming-backend-seven.vercel.app/me",
-//           {
-//             headers: {
-//               Authorization: "Bearer " + localStorage.getItem("token"),
-//             },
-//           }
-//         );
-//         if (response.data.username) {
-//           setUser({
-//             isLoading: false,
-//             userEmail: response.data.username,
-//           });
-//         }
-//         setUser({
-//           isLoading: false,
-//           userEmail: null,
-//         });
-//       } catch (error) {
-//         setUser({
-//           isLoading: false,
-//           userEmail: null,
-//         });
-//       }
-//     };
-//     init();
-//   }, [setUser]);
-//   return <></>;
-// }
