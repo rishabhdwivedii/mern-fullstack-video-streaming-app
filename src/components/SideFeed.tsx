@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./sideFeed.css";
-import VideoCard from "../videoCard/VideoCard";
+import VideoCard from "./VideoCard";
 import axios from "axios";
+import { BACKEND_URL } from "../config";
 
 export default function SideFeed() {
   const [videoFromBackend, setVideoFromBackend] = useState([]);
@@ -9,15 +9,12 @@ export default function SideFeed() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://video-streaming-backend-seven.vercel.app/",
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        );
+        const response = await axios.get(BACKEND_URL, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
 
         if (response.status !== 200) {
           throw new Error(`HTTP error! Status: ${response.status}`);

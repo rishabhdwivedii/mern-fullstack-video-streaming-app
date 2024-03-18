@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import Feed from "./pages/feed/Feed";
-import SignIn from "./pages/signIn/SignIn";
-import SignUp from "./pages/signUp/SignUp";
-import Appbar from "./components/appbar/Appbar";
+import Feed from "./pages/Feed";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Appbar from "./components/Appbar";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import VideoPage from "./pages/videoPage/VideoPage";
-import Upload from "./pages/upload/Upload";
-import Landing from "./pages/landing/Landing";
+import VideoPage from "./pages/VideoPage";
+import Upload from "./pages/Upload";
+import Landing from "./pages/Landing";
 import { RecoilRoot, useSetRecoilState } from "recoil";
 import { userState } from "./store/atoms/user";
 import axios from "axios";
+import { BACKEND_URL } from "./config";
 
 function App() {
   return (
@@ -20,12 +21,12 @@ function App() {
           <Appbar />
           <InitUser />
           <Routes>
-            <Route exact path="/" element={<Landing />} />
-            <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/signin" element={<SignIn />} />
-            <Route exact path="/feed" element={<Feed />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/feed" element={<Feed />} />
             <Route path="/videoPage/:_id" element={<VideoPage />} />
-            <Route exact path="/upload" element={<Upload />} />
+            <Route path="/upload" element={<Upload />} />
           </Routes>
         </BrowserRouter>
       </div>
@@ -37,14 +38,11 @@ function InitUser() {
   const setUser = useSetRecoilState(userState);
   const init = async () => {
     try {
-      const response = await axios.get(
-        "https://video-streaming-backend-seven.vercel.app/me",
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      );
+      const response = await axios.get(BACKEND_URL + "/me", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
 
       if (response.data.username) {
         setUser({
