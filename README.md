@@ -52,13 +52,14 @@ To run the application locally, follow these steps:
 Screenshots:
 
 **Landing Page**
-![Screenshot from 2024-04-02 13-55-41](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/de5e4c3f-6e5f-407b-a199-eff5de871eea)
+![Screenshot from 2024-04-02 13-55-08](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/81e1e6af-2ae3-41cc-86e3-09255d11f4dc)
 
 **Login Page**
-![Screenshot from 2024-04-02 13-55-23](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/9c3ab1fd-f5d3-4638-8e7a-7a503fb16f63)
-
-**Feed**
 ![Screenshot from 2024-04-02 13-55-14](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/45e03cc6-aa61-4228-8bfe-ebb2e51d7da8)
 
+**Feed**
+![Screenshot from 2024-04-02 13-55-23](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/9c3ab1fd-f5d3-4638-8e7a-7a503fb16f63)
+
+
 **Video Page**
-![Screenshot from 2024-04-02 13-55-08](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/81e1e6af-2ae3-41cc-86e3-09255d11f4dc)
+![Screenshot from 2024-04-02 13-55-41](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/de5e4c3f-6e5f-407b-a199-eff5de871eea)
