@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# **MERN Stack YouTube Clone**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a YouTube clone project built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It features JWT authentication for user sessions, TypeScript for enhanced type safety, Recoil for state management, and Tailwind CSS for design.
 
-## Available Scripts
+## **Features**
 
-In the project directory, you can run:
+- User authentication using JWT tokens.
+- Uploading and streaming videos.
+- User profile management.
+- Responsive design for various screen sizes.
 
-### `npm start`
+## **Installation**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run the application locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository:
 
-### `npm test`
+ ```git clone https://github.com/rishabhdwivedii/video-streaming-frontend.git```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project directory:
 
-### `npm run build`
+```cd video-streaming-frontend```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```npm install```
 
-### `npm run eject`
+4. Start the server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```npm start```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    The server should now be running on http://localhost:3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Technologies Used**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    + **MongoDB:** Database for storing user information and videos.
+    + **Express.js:** Backend framework for handling server-side logic and API routes.
+    + React.js: Frontend library for building user interfaces.
+    + Node.js: JavaScript runtime for running server-side code.
+    + TypeScript: Superset of JavaScript adding static typing.
+    + JWT (JSON Web Tokens): Used for user authentication.
+    + Recoil: State management library for managing global application state.
+    + Tailwind CSS: Utility-first CSS framework for styling the application.
 
-## Learn More
+**Usage**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  + Once the frontend is running, you can interact with the backend by running it from the following link:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```https://github.com/rishabhdwivedii/video-streaming-backend```
 
-### Code Splitting
+Screenshots:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Landing Page**
+![Screenshot from 2024-04-02 13-55-41](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/de5e4c3f-6e5f-407b-a199-eff5de871eea)
 
-### Analyzing the Bundle Size
+**Login Page**
+![Screenshot from 2024-04-02 13-55-23](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/9c3ab1fd-f5d3-4638-8e7a-7a503fb16f63)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Feed**
+![Screenshot from 2024-04-02 13-55-14](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/45e03cc6-aa61-4228-8bfe-ebb2e51d7da8)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Video Page**
+![Screenshot from 2024-04-02 13-55-08](https://github.com/rishabhdwivedii/video-streaming-frontend/assets/114381791/81e1e6af-2ae3-41cc-86e3-09255d11f4dc)
